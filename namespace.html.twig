@@ -18,7 +18,7 @@
                     </nav>
                     <h1><small>{{ node.parent.fullyQualifiedStructuralElementName }}</small>{{ node.name }}</h1>
 
-                    {% if node.children.count > 0 %}
+                    {% if node.children|length > 0 %}
                     <h2>Namespaces</h2>
                     <table class="table table-hover">
                         {% for namespace in node.children %}
@@ -29,7 +29,7 @@
                     </table>
                     {% endif %}
 
-                    {% if node.traits.count > 0 %}
+                    {% if node.traits|length > 0 %}
                     <h2>Traits</h2>
                     <table class="table table-hover">
                         {% for trait in node.traits %}
@@ -41,7 +41,7 @@
                     </table>
                     {% endif %}
 
-                    {% if node.interfaces.count > 0 %}
+                    {% if node.interfaces|length > 0 %}
                     <h2>Interfaces</h2>
                     <table class="table table-hover">
                         {% for interface in node.interfaces %}
@@ -53,7 +53,7 @@
                     </table>
                     {% endif %}
 
-                    {% if node.classes.count > 0 %}
+                    {% if node.classes|length > 0 %}
                     <h2>Classes</h2>
                     <table class="table table-hover">
                     {% for class in node.classes %}
@@ -85,7 +85,7 @@
                 </aside>
             </div>
 
-            {% if node.constants.count > 0 %}
+            {% if node.constants|length > 0 %}
             <div class="row-fluid">
                 <section class="span8 content namespace">
                     <h2>Constants</h2>
@@ -98,7 +98,7 @@
                 {% endfor %}
             {% endif %}
 
-            {% if node.functions.count > 0 %}
+            {% if node.functions|length > 0 %}
             <div class="row-fluid">
                 <section class="span8 content namespace">
                     <h2>Functions</h2>

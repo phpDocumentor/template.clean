@@ -9,7 +9,7 @@
                 <p><em>{{ method.summary }}</em></p>
                 {{ method.description|markdown|raw }}
 
-                {% if method.arguments.count > 0 %}
+                {% if method.arguments|length > 0 %}
                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                         {% for argument in method.arguments %}
@@ -22,7 +22,7 @@
                     </table>
                 {% endif %}
 
-                {% if method.tags.throws.count > 0 or method.tags.throw.count > 0 %}
+                {% if method.tags.throws|length > 0 or method.tags.throw|length > 0 %}
                     <h4>Throws</h4>
                     <dl>
                         {% for exception in method.tags.throws %}

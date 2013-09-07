@@ -175,7 +175,7 @@
                 </aside>
             </div>
 
-            {% if node.constants.count > 0 %}
+            {% if node.constants|length > 0 %}
                 <a id="constants" name="constants"></a>
                 <div class="row-fluid">
                 <div class="span8 content class">
@@ -189,7 +189,7 @@
                 {% endfor %}
             {% endif %}
 
-            {% if node.methods.merge(node.inheritedMethods).count > 0 %}
+            {% if node.methods.merge(node.inheritedMethods)|length > 0 %}
             <div class="row-fluid">
                 <div class="span8 content class">
                     <h2>Methods</h2>
