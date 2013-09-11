@@ -192,6 +192,17 @@
                             <dd><a href="{{ interface|route('url') }}"><div class="namespace-wrapper">{{ interface.fullyQualifiedStructuralElementName }}</div></a></dd>
                         {% endfor %}
 
+                        {% for trait in node.usedTraits %}
+                            {% if loop.first %}
+                                <dt>Uses traits</dt>
+                            {% endif %}
+                            <dd>
+                                {% if trait.fullyQualifiedStructuralElementName %}<a href="{{ trait|route('url') }}">{% endif %}
+                                    <div class="namespace-wrapper">{{ trait.fullyQualifiedStructuralElementName ?: trait }}</div>
+                                {% if trait.fullyQualifiedStructuralElementName %}</a>{% endif %}
+                            </dd>
+                        {% endfor %}
+
                         {# TODO: expensive action; replace with an index or precompiled list in descriptors #}
 {#
                         {% for child in project.indexes.elements if child.parent.fullyQualifiedStructuralElementName == node.fullyQualifiedStructuralElementName %}
