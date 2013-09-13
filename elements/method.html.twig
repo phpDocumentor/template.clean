@@ -58,7 +58,7 @@
             {% endif %}
             {% if method.deprecated %}
                 <aside class="alert alert-block alert-error">
-                    <h4>Deprecated</h4>
+                    <h4>Deprecated{% if method.tags.deprecated[0].version %} since {{ method.tags.deprecated[0].version }}{% endif %}</h4>
                     {{ method.tags.deprecated[0].description }}
                 </aside>
             {% endif %}
@@ -97,6 +97,7 @@
                         </th>
                         <td>
                             {% for tag in tags %}
+                                {% if tag.version %}{{ tag.version }}{% endif %}
                                 {{ tag.description|markdown|raw }}
                             {% endfor %}
                         </td>
