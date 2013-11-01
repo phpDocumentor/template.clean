@@ -74,12 +74,20 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="{{ path('reports/errors.html') }}">
-                                    <i class="icon-list-alt"></i>&#160;Errors
+                                    {% set errorCount = 0 %}
+                                    {% for file in project.files %}
+                                        {% set errorCount = errorCount + file.allerrors.count %}
+                                    {% endfor %}
+                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">{{ errorCount }}</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('reports/markers.html') }}">
-                                    <i class="icon-list-alt"></i>&#160;Markers
+                                    {% set markerCount = 0 %}
+                                    {% for file in project.files %}
+                                        {% set markerCount = markerCount + file.markers.count %}
+                                    {% endfor %}
+                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">{{ markerCount }}</span>
                                 </a>
                             </li>
 {#
