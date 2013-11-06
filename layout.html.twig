@@ -7,7 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>API Documentation</title>
+    <title>{% block title %}{{ project.name }}{% endblock %}</title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
 
@@ -41,7 +41,7 @@
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <i class="icon-ellipsis-vertical"></i>
             </a>
-            <a class="brand" href="{{  path('index.html') }}">API Documentation</a>
+            <a class="brand" href="{{  path('index.html') }}">{{ project.name }}</a>
 
             <div class="nav-collapse">
                 <ul class="nav pull-right">
@@ -74,12 +74,20 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="{{ path('reports/errors.html') }}">
-                                    <i class="icon-list-alt"></i>&#160;Errors
+                                    {% set errorCount = 0 %}
+                                    {% for file in project.files %}
+                                        {% set errorCount = errorCount + file.allerrors.count %}
+                                    {% endfor %}
+                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">{{ errorCount }}</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('reports/markers.html') }}">
-                                    <i class="icon-list-alt"></i>&#160;Markers
+                                    {% set markerCount = 0 %}
+                                    {% for file in project.files %}
+                                        {% set markerCount = markerCount + file.markers.count %}
+                                    {% endfor %}
+                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">{{ markerCount }}</span>
                                 </a>
                             </li>
 {#
@@ -124,7 +132,7 @@
                             <h1><i class="icon-bar-chart"></i></h1>
                             <div>
                                 <ul>
-                                    <li><a href="">Class Hierarchy Diagram</a></li>
+                                    <li><a href="{{ path('graphs/class.html') }}">Class Hierarchy Diagram</a></li>
                                 </ul>
                             </div>
                         </section>
@@ -133,8 +141,8 @@
                             <h1><i class="icon-pushpin"></i></h1>
                             <div>
                                 <ul>
-                                    <li><a href="">Errors</a></li>
-                                    <li><a href="">Markers</a></li>
+                                    <li><a href="{{ path('reports/errors.html') }}">Errors</a></li>
+                                    <li><a href="{{ path('reports/markers.html') }}">Markers</a></li>
                                 </ul>
                             </div>
                         </section>
