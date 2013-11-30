@@ -11,18 +11,18 @@
             <div id="namespace-{{ code }}" class="accordion-body collapse {{ namespace.name == '\\' ? 'in' }}">
                 <div class="accordion-inner">
 
-                    {% for namespace in namespace.children %}
+                    {% for namespace in namespace.children|sortAsc %}
                         {{ block('sidebarNamespaces') }}
                     {% endfor %}
 
                     <ul>
-                        {% for class in namespace.interfaces %}
+                        {% for class in namespace.interfaces|sortAsc %}
                             <li class="interface">{{ class|route('class:short')|raw }}</li>
                         {% endfor %}
-                        {% for class in namespace.traits %}
+                        {% for class in namespace.traits|sortAsc %}
                             <li class="trait">{{ class|route('class:short')|raw }}</li>
                         {% endfor %}
-                        {% for class in namespace.classes %}
+                        {% for class in namespace.classes|sortAsc %}
                             <li class="class">{{ class|route('class:short')|raw }}</li>
                         {% endfor %}
                     </ul>
