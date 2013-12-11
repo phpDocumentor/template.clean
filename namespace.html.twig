@@ -21,7 +21,7 @@
                     {% if node.children|length > 0 %}
                     <h2>Namespaces</h2>
                     <table class="table table-hover">
-                        {% for namespace in node.children %}
+                        {% for namespace in node.children|sort_asc %}
                             <tr>
                                 <td>{{ namespace|route('class:short')|raw }}</td>
                             </tr>
@@ -32,7 +32,7 @@
                     {% if node.traits|length > 0 %}
                     <h2>Traits</h2>
                     <table class="table table-hover">
-                        {% for trait in node.traits %}
+                        {% for trait in node.traits|sort_asc %}
                             <tr>
                                 <td>{{ trait|route('class:short')|raw }}</td>
                                 <td><em>{{ trait.summary }}</em></td>
@@ -44,7 +44,7 @@
                     {% if node.interfaces|length > 0 %}
                     <h2>Interfaces</h2>
                     <table class="table table-hover">
-                        {% for interface in node.interfaces %}
+                        {% for interface in node.interfaces|sort_asc %}
                             <tr>
                                 <td>{{ interface|route('class:short')|raw }}</td>
                                 <td><em>{{ interface.summary }}</em></td>
@@ -56,7 +56,7 @@
                     {% if node.classes|length > 0 %}
                     <h2>Classes</h2>
                     <table class="table table-hover">
-                    {% for class in node.classes %}
+                    {% for class in node.classes|sort_asc %}
                         <tr>
                             <td>{{ class|route('class:short')|raw }}</td>
                             <td><em>{{ class.summary }}</em></td>
@@ -93,7 +93,7 @@
                 <aside class="span4 detailsbar"></aside>
             </div>
 
-                {% for constant in node.constants %}
+                {% for constant in node.constants|sort_asc %}
                     {{ block('constant') }}
                 {% endfor %}
             {% endif %}
@@ -106,7 +106,7 @@
                 <aside class="span4 detailsbar"></aside>
             </div>
 
-                {% for method in node.functions %}
+                {% for method in node.functions|sort_asc %}
                     {{ block('method') }}
                 {% endfor %}
             {% endif %}

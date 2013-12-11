@@ -50,7 +50,7 @@
                             API Documentation <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            {% for namespace in project.namespace.children %}
+                            {% for namespace in project.namespace.children|sort_asc %}
                             <li>{{ namespace|route|raw }}</li>
                             {% endfor %}
                         </ul>
@@ -121,7 +121,7 @@
                             <h1><i class="icon-code"></i></h1>
                             <div>
                                 <ul>
-                                    {% for namespace in project.namespace.children %}
+                                    {% for namespace in project.namespace.children|sort_asc %}
                                         <li>{{ namespace|route|raw }}</li>
                                     {% endfor %}
                                 </ul>
