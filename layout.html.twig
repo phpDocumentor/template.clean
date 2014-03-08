@@ -90,13 +90,15 @@
                                     <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">{{ markerCount }}</span>
                                 </a>
                             </li>
-{#
                             <li>
                                 <a href="{{ path('reports/deprecated.html') }}">
-                                    <i class="icon-list-alt"></i>&#160;Deprecated
+                                    {% set deprecatedCount = 0 %}
+                                    {% for element in project.indexes.elements if element.deprecated %}
+                                        {% set deprecatedCount = deprecatedCount + element.tags.deprecated.count %}
+                                    {% endfor %}
+                                    <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">{{ deprecatedCount }}</span>
                                 </a>
                             </li>
-#}
                         </ul>
                     </li>
                 </ul>
