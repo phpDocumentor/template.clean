@@ -85,14 +85,14 @@
                         </section>
                         <section class="row-fluid public">
                             <section class="span6">
-                                {% for method in node.methods.merge(node.inheritedMethods) if method.visibility == 'public' %}
+                                {% for method in node.inheritedMethods.merge(node.methods) if method.visibility == 'public' %}
                                     <a href="{{ method|route('url')}}">{{ method.name }}()</a><br />
                                 {% else %}
                                     <em>No public methods found</em>
                                 {% endfor %}
                             </section>
                             <section class="span6">
-                                {% for constant in node.constants.merge(node.inheritedConstants) %}
+                                {% for constant in node.inheritedConstants.merge(node.constants) %}
                                     <a href="{{ constant|route('url')}}">{{ constant.name }}</a><br />
                                 {% else %}
                                     <em>No constants found</em>
@@ -101,7 +101,7 @@
                         </section>
                         <section class="row-fluid protected">
                             <section class="span6">
-                                {% for method in node.methods.merge(node.inheritedMethods) if method.visibility == 'protected' %}
+                                {% for method in node.inheritedMethods.merge(node.methods) if method.visibility == 'protected' %}
                                     <a href="{{ method|route('url')}}">{{ method.name }}()</a><br />
                                 {% else %}
                                     <em>No protected methods found</em>
@@ -113,7 +113,7 @@
                         </section>
                         <section class="row-fluid private">
                             <section class="span6">
-                                {% for method in node.methods.merge(node.inheritedMethods) if method.visibility == 'private' %}
+                                {% for method in node.inheritedMethods.merge(node.methods) if method.visibility == 'private' %}
                                     <a href="{{ method|route('url')}}">{{ method.name }}()</a><br />
                                 {% else %}
                                     <em>No private methods found</em>
@@ -184,12 +184,12 @@
                 <aside class="span4 detailsbar"></aside>
             </div>
 
-            {% for constant in node.constants.merge(node.inheritedConstants) %}
+            {% for constant in node.inheritedConstants.merge(node.constants) %}
                 {{ block('constant') }}
                 {% endfor %}
             {% endif %}
 
-            {% if node.methods.merge(node.inheritedMethods)|length > 0 %}
+            {% if node.inheritedMethods.merge(node.methods)|length > 0 %}
             <div class="row-fluid">
                 <div class="span8 content class">
                     <h2>Methods</h2>
@@ -197,13 +197,13 @@
                 <aside class="span4 detailsbar"></aside>
             </div>
 
-                {% for method in node.methods.merge(node.inheritedMethods) if method.visibility == 'public' %}
+                {% for method in node.inheritedMethods.merge(node.methods) if method.visibility == 'public' %}
                 {{ block('method') }}
                 {% endfor %}
-                {% for method in node.methods.merge(node.inheritedMethods) if method.visibility == 'protected' %}
+                {% for method in node.inheritedMethods.merge(node.methods) if method.visibility == 'protected' %}
                 {{ block('method') }}
                 {% endfor %}
-                {% for method in node.methods.merge(node.inheritedMethods) if method.visibility == 'private' %}
+                {% for method in node.inheritedMethods.merge(node.methods) if method.visibility == 'private' %}
                 {{ block('method') }}
                 {% endfor %}
             {% endif %}

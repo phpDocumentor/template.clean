@@ -88,21 +88,21 @@
                         </section>
                         <section class="row-fluid public">
                             <section class="span4">
-                                {% for method in node.methods.merge(node.inheritedMethods.merge(node.magicMethods)) if method.visibility == 'public' %}
+                                {% for method in node.inheritedMethods.merge(node.methods.merge(node.magicMethods)) if method.visibility == 'public' %}
                                     <a href="{{ method|route('url')}}" class="{{ method.deprecated ? 'deprecated' }}">{{ method.name }}()</a><br />
                                 {% else %}
                                     <em>No public methods found</em>
                                 {% endfor %}
                             </section>
                             <section class="span4">
-                                {% for property in node.properties.merge(node.inheritedProperties.merge(node.magicProperties)) if property.visibility == 'public' %}
+                                {% for property in node.inheritedProperties.merge(node.properties.merge(node.magicProperties)) if property.visibility == 'public' %}
                                     <a href="{{ property|route('url')}}" class="{{ property.deprecated ? 'deprecated' }}">${{ property.name }}</a><br />
                                 {% else %}
                                     <em>No public properties found</em>
                                 {% endfor %}
                             </section>
                             <section class="span4">
-                                {% for constant in node.constants.merge(node.inheritedConstants) %}
+                                {% for constant in node.inheritedConstants.merge(node.constants) %}
                                     <a href="{{ constant|route('url')}}" class="{{ constant.deprecated ? 'deprecated' }}">{{ constant.name }}</a><br />
                                 {% else %}
                                     <em>No constants found</em>
@@ -111,14 +111,14 @@
                         </section>
                         <section class="row-fluid protected">
                             <section class="span4">
-                                {% for method in node.methods.merge(node.inheritedMethods.merge(node.magicMethods)) if method.visibility == 'protected' %}
+                                {% for method in node.inheritedMethods.merge(node.methods.merge(node.magicMethods)) if method.visibility == 'protected' %}
                                     <a href="{{ method|route('url')}}" class="{{ method.deprecated ? 'deprecated' }}">{{ method.name }}()</a><br />
                                 {% else %}
                                     <em>No protected methods found</em>
                                 {% endfor %}
                             </section>
                             <section class="span4">
-                                {% for property in node.properties.merge(node.inheritedProperties.merge(node.magicProperties)) if property.visibility == 'protected' %}
+                                {% for property in node.inheritedProperties.merge(node.properties.merge(node.magicProperties)) if property.visibility == 'protected' %}
                                     <a href="{{ property|route('url')}}" class="{{ property.deprecated ? 'deprecated' }}">${{ property.name }}</a><br />
                                 {% else %}
                                     <em>No protected properties found</em>
@@ -130,14 +130,14 @@
                         </section>
                         <section class="row-fluid private">
                             <section class="span4">
-                                {% for method in node.methods.merge(node.inheritedMethods.merge(node.magicMethods)) if method.visibility == 'private' %}
+                                {% for method in node.inheritedMethods.merge(node.methods.merge(node.magicMethods)) if method.visibility == 'private' %}
                                     <a href="{{ method|route('url')}}" class="{{ method.deprecated ? 'deprecated' }}">{{ method.name }}()</a><br />
                                 {% else %}
                                     <em>No private methods found</em>
                                 {% endfor %}
                             </section>
                             <section class="span4">
-                                {% for property in node.properties.merge(node.inheritedProperties.merge(node.magicProperties)) if property.visibility == 'private' %}
+                                {% for property in node.inheritedProperties.merge(node.properties.merge(node.magicProperties)) if property.visibility == 'private' %}
                                     <a href="{{ property|route('url')}}" class="{{ property.deprecated ? 'deprecated' }}">${{ property.name }}</a><br />
                                 {% else %}
                                     <em>No private properties found</em>
@@ -245,7 +245,7 @@
                 </aside>
             </div>
 
-            {% set constants = node.constants.merge(node.inheritedConstants) %}
+            {% set constants = node.inheritedConstants.merge(node.constants) %}
             {% if constants|length > 0 %}
             <a id="constants" name="constants"></a>
             <div class="row-fluid">
@@ -260,7 +260,7 @@
                 {% endfor %}
             {% endif %}
 
-            {% set properties = node.properties.merge(node.inheritedProperties.merge(node.magicProperties)) %}
+            {% set properties = node.inheritedProperties.merge(node.properties.merge(node.magicProperties)) %}
             {% if properties|length > 0 %}
             <a id="properties" name="properties"></a>
             <div class="row-fluid">
@@ -281,7 +281,7 @@
                 {% endfor %}
             {% endif %}
 
-            {% set methods = node.methods.merge(node.inheritedMethods.merge(node.magicMethods)) %}
+            {% set methods = node.inheritedMethods.merge(node.methods.merge(node.magicMethods)) %}
             {% if methods|length > 0 %}
             <a id="methods" name="methods"></a>
             <div class="row-fluid">
