@@ -88,9 +88,17 @@
                     {% endfor %}
                 {% endfor %}
             </dl>
+            {% for tagName,tags in method.tags if tagName in ['example'] %}
+                {% if loop.first %}
+                    <h2>Examples</h2>
+                {% endif %}
+                {% for tag in tags %}
+                    <pre class="pre-scrollable">{{ tag.description|escape }}</pre>
+                {% endfor %}
+            {% endfor %}
             <h2>Tags</h2>
             <table class="table table-condensed">
-                {% for tagName,tags in method.tags if tagName not in ['link', 'see', 'abstract', 'param', 'return', 'access', 'deprecated', 'throws', 'throw', 'uses'] %}
+                {% for tagName,tags in method.tags if tagName not in ['example', 'link', 'see', 'abstract', 'param', 'return', 'access', 'deprecated', 'throws', 'throw', 'uses'] %}
                     <tr>
                         <th>
                             {{ tagName }}
