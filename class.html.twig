@@ -177,9 +177,9 @@
                     <dl>
                         <dt>File</dt>
                             <dd><a href="{{ node.file|route('url') }}"><div class="path-wrapper">{{ node.path }}</div></a></dd>
-                        {% if node.package is not empty and node.package != '\\' %}
+                        {% if node.package.name is not empty and node.package.name != '\\' %}
                         <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">{{ node.subpackage ? (node.package ~ '\\' ~ node.subpackage) : node.package }}</div></dd>
+                            <dd><div class="namespace-wrapper">{{ node.package.parent.name != '\\' ? (node.package.parent.name ~ '\\' ~ node.package.name) : node.package.name }}</div></dd>
                         {% endif %}
                         <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
