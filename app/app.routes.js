@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    angular.module('app').config(['$routeProvider', ', $locationProvider', routes]);
+    angular.module('app').config(['$routeProvider', routes]);
 
-    function routes($routeProvider, $locationProvider) {
+    function routes($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'templates/homepage.html'
@@ -24,7 +24,5 @@
             .otherwise({
                 redirectTo: '/'
             });
-
-        $locationProvider.html5Mode(true);
     }
 })();

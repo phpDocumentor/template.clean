@@ -16,24 +16,24 @@
   ]]></description>
     <transformations>
         <!-- Copy assets to template folder -->
-        <transformation query="copy" writer="FileIo" source="templates/clean2/images" artifact="images"/>
-        <transformation query="copy" writer="FileIo" source="templates/clean2/css" artifact="css"/>
-        <transformation query="copy" writer="FileIo" source="templates/clean2/js" artifact="js"/>
-        <transformation query="copy" writer="FileIo" source="templates/clean2/fonts" artifact="fonts"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean/images" artifact="images"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean/css" artifact="css"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean/js" artifact="js"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean/fonts" artifact="fonts"/>
 
         <!-- Generate default template -->
-        <transformation query="copy" writer="FileIo" source="templates/clean2/views/index.html" artifact="index.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/sidebar.html" artifact="index.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/homepage.html" artifact="index.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-diagram.html" artifact="index.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-detail.html" artifact="index.html"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean/views/index.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/sidebar.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/homepage.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/class-diagram.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/class-detail.html" artifact="index.html"/>
 
         <!-- Generate ZF2 prototype template (should be removed before launch of Clean v2) -->
-        <transformation query="copy" writer="FileIo" source="templates/clean2/views/zend.html" artifact="zend.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/sidebar.html" artifact="zend.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/homepage.html" artifact="zend.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-diagram.html" artifact="zend.html"/>
-        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-detail.html" artifact="zend.html"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean/views/zend.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/sidebar.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/homepage.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/class-diagram.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/class-detail.html" artifact="zend.html"/>
 
         <!-- Render Angular JSONP source data -->
         <transformation writer="jsonp"/>
