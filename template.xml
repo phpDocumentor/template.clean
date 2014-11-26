@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <author>Mike van Riel</author>
+    <email>mike@phpdoc.org</email>
+    <version>1.0.0</version>
+    <copyright>Mike van Riel 2014</copyright>
+    <description><![CDATA[
+
+      To improve performance you can add the following to your .htaccess:
+
+      <ifModule mod_deflate.c>
+          <filesMatch "\.(js|css|html)$">
+              SetOutputFilter DEFLATE
+          </filesMatch>
+      </ifModule>
+  ]]></description>
+    <transformations>
+        <!-- Copy assets to template folder -->
+        <transformation query="copy" writer="FileIo" source="templates/clean2/images" artifact="images"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean2/css" artifact="css"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean2/js" artifact="js"/>
+        <transformation query="copy" writer="FileIo" source="templates/clean2/fonts" artifact="fonts"/>
+
+        <!-- Generate default template -->
+        <transformation query="copy" writer="FileIo" source="templates/clean2/views/index.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/sidebar.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/homepage.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-diagram.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-detail.html" artifact="index.html"/>
+
+        <!-- Generate ZF2 prototype template (should be removed before launch of Clean v2) -->
+        <transformation query="copy" writer="FileIo" source="templates/clean2/views/zend.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/sidebar.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/homepage.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-diagram.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean2/views/class-detail.html" artifact="zend.html"/>
+
+        <!-- Render Angular JSONP source data -->
+        <transformation writer="jsonp"/>
+    </transformations>
+</template>
+

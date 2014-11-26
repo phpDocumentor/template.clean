@@ -1,0 +1,112 @@
+<script type="text/ng-template" id="sidebar">
+    <ul class="mtree" role="navigation" title="Table of Contents">
+        <li class="api-form">
+            <label>Version
+                <select>
+                    <option value="husker">Husker</option>
+                    <option value="starbuck">Starbuck</option>
+                    <option value="hotdog">Hot Dog</option>
+                    <option value="apollo">Apollo</option>
+                </select>
+            </label>
+            <div class="row collapse prefix-radius">
+                <div class="small-10 columns">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="small-2 columns">
+                    <span class="postfix"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        </li>
+        <li class="heading">Documentation</li>
+        <li role="menuitem">
+            <a href="#">Welcome</a>
+            <ul>
+                <li><a href="#">What is phpDocumentor</a></li>
+                <li><a href="#">Goals</a></li>
+            </ul>
+        </li>
+        <li role="menuitem">
+            <a href="#">Getting Started</a>
+            <ul>
+                <li><a href="#">Installing</a></li>
+                <li><a href="#">Your First Set Of Documentation</a></li>
+                <li><a href="#">Changing The Look And Feel</a></li>
+            </ul>
+        </li>
+        <li role="menuitem">
+            <a href="#">Guides</a>
+            <ul>
+                <li><a href="#">Inside DocBlocks</a></li>
+                <li><a href="#">Types</a></li>
+                <li><a href="#">Inheritance</a></li>
+                <li><a href="#">Running phpDocumentor</a></li>
+            </ul>
+        </li>
+        <li role="menuitem">
+            <a href="#">References</a>
+            <ul>
+                <li><a href="#">PHPDoc Reference</a></li>
+                <li>
+                    <a href="#">Tags</a>
+                    <ul>
+                        <li><a href="">@api</a></li>
+                        <li><a href="">@author</a></li>
+                        <li><a href="">@category</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Configuration</a></li>
+                <li><a href="#">Commands</a></li>
+            </ul>
+        </li>
+        <li class="heading">API</li>
+        <li role="menuitem"><a href="#">Class Diagram</a></li>
+        <li>
+            <a href="#">Namespaces</a>
+            <ul>
+                <li><a href="#">{{ elements.namespaces.name }}</a></li>
+                <li ng-repeat="namespace in elements.namespaces.namespaces" ng-include src="'menu-namespace'"></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Packages</a>
+            <ul>
+                <li><a href="#">{{ elements.packages.name }}</a></li>
+                <li ng-repeat="package in elements.packages.packages" ng-include src="'menu-package'"></li>
+            </ul>
+        </li>
+    </ul>
+    <a href="http://phpdoc.org" class="watermark" target="_blank"><img src="images/powered-by.png" /></a>
+</script>
+
+<script type="text/ng-template" id="menu-namespace">
+    <a href="#"><img src="images/icons/namespace_016.png"/> {{ namespace.name }}</a>
+    <ul>
+        <li ng-repeat="namespace in namespace.namespaces" ng-include src="'menu-namespace'"></li>
+        <li ng-repeat="trait in namespace.traits">
+            <a href="#/{{ trait | route:classes }}"><img src="images/icons/trait_016.png"/> {{ trait.split('\\').pop() }}</a>
+        </li>
+        <li ng-repeat="interface in namespace.interfaces">
+            <a href="#/{{ interface | route:classes }}"><img src="images/icons/interface_016.png"/> {{ interface.split('\\').pop() }}</a>
+        </li>
+        <li ng-repeat="class in namespace.classes">
+            <a href="#/{{ class | route:classes }}"><img src="images/icons/class_016.png"/> {{ class.split('\\').pop() }}</a>
+        </li>
+    </ul>
+</script>
+
+<script type="text/ng-template" id="menu-package">
+    <a href="#"><img src="images/icons/package_016.png"/> {{ package.name }}</a>
+    <ul>
+        <li ng-repeat="package in package.packages" ng-include src="'menu-package'"></li>
+        <li ng-repeat="trait in namespace.traits">
+            <a href="#/{{ trait | route:classes }}"><img src="images/icons/trait_016.png"/> {{ trait.split('\\').pop() }}</a>
+        </li>
+        <li ng-repeat="interface in namespace.interfaces">
+            <a href="#/{{ interface | route:classes }}"><img src="images/icons/interface_016.png"/> {{ interface.split('\\').pop() }}</a>
+        </li>
+        <li ng-repeat="class in package.classes">
+            <a href="#/{{ class | route:classes }}"><img src="images/icons/class_016.png"/> {{ class.split('\\').pop() }}</a>
+        </li>
+    </ul>
+</script>

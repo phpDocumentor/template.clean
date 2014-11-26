@@ -1,0 +1,124 @@
+@import "compass/css3/filter";
+@import "foundation/functions";
+
+$font-family-sans-serif: "Roboto", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+
+$h1-font-size: rem-calc(40);
+$h2-font-size: rem-calc(30);
+$h3-font-size: rem-calc(20);
+$h4-font-size: rem-calc(18);
+$h5-font-size: rem-calc(13);
+$h6-font-size: 1rem;
+
+$topbar-bg-color: #f5f5f5;
+$topbar-bg: $topbar-bg-color;
+$topbar-dropdown-bg: $topbar-bg-color;
+$topbar-dropdown-link-color: #333;
+$topbar-dropdown-link-bg: $topbar-bg-color;
+$topbar-dropdown-toggle-color: #333;
+$topbar-height: 70px;
+$topbar-link-bg-hover: #EDF6FF;
+
+// Set the link colors and styles for top-level nav
+$topbar-link-color: #333;
+$topbar-link-color-hover: #333;
+$topbar-link-color-active: #333;
+$topbar-link-color-active-hover: #333;
+
+$side-nav-list-margin: 0;
+
+@import "foundation";
+@import "font-awesome";
+@import "mtree";
+@import url(http://fonts.googleapis.com/css?family=Esteban|Roboto);
+
+h4 {
+  font-weight: bold;
+}
+table {
+  width: 100%;
+}
+.column.collapse, .columns.collapse {
+  padding: 0;
+}
+
+nav.top-bar {
+  height: 100px;
+}
+.page.row {
+  position: relative;
+  max-width: 80rem;
+  margin-top: -30px;
+  background: white;
+  border: 1px solid #f0f0f0;
+  border-bottom: 0;
+}
+.title-area .name h1 a {
+  font-family: Esteban inherited;
+  font-size: 1.7rem;
+  color: #555;
+}
+
+h1 {
+  line-height: normal;
+  margin-top: 0;
+
+  small {
+    line-height: normal;
+    display: block;
+  }
+}
+
+section[ng-view] {
+  padding-top: 15px;
+}
+.type-mutators {
+  font-style: italic;
+}
+.sidebar {
+  background: #f9f9f9;
+  border-bottom-right-radius: 10px;
+}
+section.summary {
+  .public a, .protected a, .private a {
+    display: block;
+  }
+}
+section.divider {
+  margin-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
+section.divider:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+h3.signature {
+  background: #f9f9f9;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+}
+.signature .argument:not(:last-child):after {content: ', '}
+
+.watermark {
+  @include filter(grayscale(100%));
+  opacity: 0.3;
+  width: 60px;
+  margin-top: 10px;
+  margin-right: 10px;
+  right: 0;
+  position: absolute;
+  transition: all 200ms;
+}
+.watermark:hover {
+  @include filter(grayscale(0%));
+  opacity: 1;
+}
+.api-form {
+  margin: 1rem 1rem 0;
+}

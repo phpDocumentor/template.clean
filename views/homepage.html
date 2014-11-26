@@ -1,0 +1,12 @@
+<script type="text/ng-template" id="templates/homepage.html">
+    <h1>Namespaces</h1>
+        <div>
+            {{ elements.namespaces.fqnn }}
+            <div ng-repeat="namespace in elements.namespaces.namespaces" ng-include src="'homepage-namespace'"></div>
+        </div>
+</script>
+
+<script type="text/ng-template" id="homepage-namespace">
+    <a href="#/namespaces/{{ namespace.fqnn.split('\\').join('.').substring(1) }}">{{ namespace.fqnn }}</a>
+    <div ng-repeat="namespace in namespace.namespaces" ng-include src="'homepage-namespace'"></div>
+</script>
