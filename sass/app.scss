@@ -10,6 +10,8 @@ $h4-font-size: rem-calc(18);
 $h5-font-size: rem-calc(13);
 $h6-font-size: 1rem;
 
+$column-gutter: rem-calc(60);
+
 // Colors are from the Light Green swatch of http://www.google.com/design/spec/style/color.html#color-color-palette
 $primary-color: #558B2F;
 $secondary-color: #e7e7e7;
@@ -41,6 +43,9 @@ $side-nav-list-margin: 0;
 @import "mtree";
 @import url(http://fonts.googleapis.com/css?family=Esteban|Roboto);
 
+body {
+  background: #F1F8E9;
+}
 h4 {
   font-weight: bold;
 }
@@ -85,14 +90,32 @@ h1 {
   }
 }
 
+.class-title {
+  background: #C5E1A5;
+  padding: 2rem;
+}
+.class-intro {
+  background: #DCEDC8;
+  padding: 2rem;
+  margin: 30px 0;
+}
+.summary {
+  background: #F1F8E9;
+  margin: 30px 0;
+  padding: 2rem;
+}
+article.method, article.property {
+  border-left: 3px solid #C5E1A5;
+  padding-left: 1rem;
+}
 section[ng-view] {
-  padding-top: 15px;
+  padding-top: 2em;
 }
 .type-mutators {
   font-style: italic;
 }
 .sidebar {
-  background: #f9f9f9;
+//  background: #f9f9f9;
   border-bottom-right-radius: 10px;
 }
 section.summary {
@@ -101,9 +124,9 @@ section.summary {
   }
 }
 section.divider {
-  margin-top: 20px;
-  border-top: 1px solid #e0e0e0;
-  padding-top: 20px;
+  margin-top: 30px;
+  padding: 2rem;
+  background: #F1F8E9;
 }
 section.divider:after {
   content: " ";

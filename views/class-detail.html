@@ -1,17 +1,19 @@
 <script type="text/ng-template" id="templates/class-detail.html">
-    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
-    <span class="type-mutators">{{ class_detail.class.type }} {{ class_detail.class.final && 'final' || '' }} {{ class_detail.class.abstract && 'abstract' || '' }}</span>
-    <h1><small>{{ class_detail.class.namespace }}</small>{{ class_detail.class.name }}</h1>
-    <span ng-show="{{ class_detail.class.extends }}">extends {{ class_detail.class.extends }}</span>
-    <span ng-show="{{ class_detail.class.implements }}">implements {{ class_detail.class.implements }}</span>
+    <div class="class-title">
+        <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+        <span class="type-mutators">{{ class_detail.class.type }} {{ class_detail.class.final && 'final' || '' }} {{ class_detail.class.abstract && 'abstract' || '' }}</span>
+        <h1><small>{{ class_detail.class.namespace }}</small>{{ class_detail.class.name }}</h1>
+        <span ng-show="{{ class_detail.class.extends }}">extends {{ class_detail.class.extends }}</span>
+        <span ng-show="{{ class_detail.class.implements }}">implements {{ class_detail.class.implements }}</span>
+    </div>
 
-    <section class="class-intro divider" ng-show="class_detail.class.summary || class_detail.class.description">
+    <section class="class-intro" ng-show="class_detail.class.summary || class_detail.class.description">
         <h2>Class Overview</h2>
         <p><em>{{ class_detail.class.summary }}</em></p>
         <div ng-bind-html="class_detail.class.description|markdown"></div>
     </section>
 
-    <section class="summary divider" ng-include src="'class-summary'"></section>
+    <section class="summary" ng-include src="'class-summary'"></section>
 
     <section class="constants divider" ng-include src="'class-constants'" ng-show="class_detail.class.constants.length > 0"></section>
 

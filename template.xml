@@ -27,6 +27,7 @@
         <transformation query="append" writer="FileIo" source="templates/clean/views/homepage.html" artifact="index.html"/>
         <transformation query="append" writer="FileIo" source="templates/clean/views/class-diagram.html" artifact="index.html"/>
         <transformation query="append" writer="FileIo" source="templates/clean/views/class-detail.html" artifact="index.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/namespace-detail.html" artifact="index.html"/>
 
         <!-- Generate ZF2 prototype template (should be removed before launch of Clean v2) -->
         <transformation query="copy" writer="FileIo" source="templates/clean/views/zend.html" artifact="zend.html"/>
@@ -34,6 +35,7 @@
         <transformation query="append" writer="FileIo" source="templates/clean/views/homepage.html" artifact="zend.html"/>
         <transformation query="append" writer="FileIo" source="templates/clean/views/class-diagram.html" artifact="zend.html"/>
         <transformation query="append" writer="FileIo" source="templates/clean/views/class-detail.html" artifact="zend.html"/>
+        <transformation query="append" writer="FileIo" source="templates/clean/views/namespace-detail.html" artifact="zend.html"/>
 
         <!-- Render Angular JSONP source data -->
         <transformation writer="jsonp"/>

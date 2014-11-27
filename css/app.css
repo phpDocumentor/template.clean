@@ -180,8 +180,8 @@ select {
 /* line 228, ../bower_components/foundation/scss/foundation/components/_grid.scss */
 .row .row {
   width: auto;
-  margin-left: -0.9375rem;
-  margin-right: -0.9375rem;
+  margin-left: -1.875rem;
+  margin-right: -1.875rem;
   margin-top: 0;
   margin-bottom: 0;
   max-width: none;
@@ -214,8 +214,8 @@ select {
 /* line 234, ../bower_components/foundation/scss/foundation/components/_grid.scss */
 .column,
 .columns {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
   width: 100%;
   float: left;
 }
@@ -403,8 +403,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
     float: left;
   }
 
@@ -744,8 +744,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
     float: left;
   }
 
@@ -1253,8 +1253,8 @@ select {
   .column,
   .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
     float: left;
   }
 
@@ -1627,7 +1627,7 @@ select {
 /* line 146, ../bower_components/foundation/scss/foundation/components/_accordion.scss */
 .accordion .accordion-navigation > .content, .accordion dd > .content {
   display: none;
-  padding: 0.9375rem;
+  padding: 1.875rem;
 }
 /* line 149, ../bower_components/foundation/scss/foundation/components/_accordion.scss */
 .accordion .accordion-navigation > .content.active, .accordion dd > .content.active {
@@ -6391,7 +6391,7 @@ table tr td {
 .tabs-content > .content {
   display: none;
   float: left;
-  padding: 0.9375rem 0;
+  padding: 1.875rem 0;
   width: 100%;
 }
 /* line 88, ../bower_components/foundation/scss/foundation/components/_tabs.scss */
@@ -6401,7 +6401,7 @@ table tr td {
 }
 /* line 89, ../bower_components/foundation/scss/foundation/components/_tabs.scss */
 .tabs-content > .content.contained {
-  padding: 0.9375rem;
+  padding: 1.875rem;
 }
 /* line 91, ../bower_components/foundation/scss/foundation/components/_tabs.scss */
 .tabs-content.vertical {
@@ -6409,7 +6409,7 @@ table tr td {
 }
 /* line 93, ../bower_components/foundation/scss/foundation/components/_tabs.scss */
 .tabs-content.vertical > .content {
-  padding: 0 0.9375rem;
+  padding: 0 1.875rem;
 }
 
 @media only screen and (min-width: 40.063em) {
@@ -11871,27 +11871,32 @@ ul.mtree.jet {
   li li li li li > a { padding-left: $indent*5; }
 }
 */
-/* line 44, ../sass/app.scss */
+/* line 46, ../sass/app.scss */
+body {
+  background: #F1F8E9;
+}
+
+/* line 49, ../sass/app.scss */
 h4 {
   font-weight: bold;
 }
 
-/* line 47, ../sass/app.scss */
+/* line 52, ../sass/app.scss */
 table {
   width: 100%;
 }
 
-/* line 50, ../sass/app.scss */
+/* line 55, ../sass/app.scss */
 .column.collapse, .columns.collapse {
   padding: 0;
 }
 
-/* line 54, ../sass/app.scss */
+/* line 59, ../sass/app.scss */
 nav.top-bar {
   height: 100px;
 }
 
-/* line 57, ../sass/app.scss */
+/* line 62, ../sass/app.scss */
 .page.row {
   position: relative;
   max-width: 80rem;
@@ -11904,64 +11909,89 @@ nav.top-bar {
   padding-bottom: 30px;
 }
 
-/* line 68, ../sass/app.scss */
+/* line 73, ../sass/app.scss */
 .title-area .name h1 a {
   font-family: Esteban inherited;
   font-size: 1.7rem;
   color: white;
 }
-/* line 73, ../sass/app.scss */
+/* line 78, ../sass/app.scss */
 .title-area .name h1 a i.fa-circle {
   color: #555;
 }
 
-/* line 78, ../sass/app.scss */
+/* line 83, ../sass/app.scss */
 h1 {
   line-height: normal;
   margin-top: 0;
 }
-/* line 82, ../sass/app.scss */
+/* line 87, ../sass/app.scss */
 h1 small {
   line-height: normal;
   display: block;
 }
 
-/* line 88, ../sass/app.scss */
-section[ng-view] {
-  padding-top: 15px;
+/* line 93, ../sass/app.scss */
+.class-title {
+  background: #C5E1A5;
+  padding: 2rem;
 }
 
-/* line 91, ../sass/app.scss */
+/* line 97, ../sass/app.scss */
+.class-intro {
+  background: #DCEDC8;
+  padding: 2rem;
+  margin: 30px 0;
+}
+
+/* line 102, ../sass/app.scss */
+.summary {
+  background: #F1F8E9;
+  margin: 30px 0;
+  padding: 2rem;
+}
+
+/* line 107, ../sass/app.scss */
+article.method, article.property {
+  border-left: 3px solid #C5E1A5;
+  padding-left: 1rem;
+}
+
+/* line 111, ../sass/app.scss */
+section[ng-view] {
+  padding-top: 2em;
+}
+
+/* line 114, ../sass/app.scss */
 .type-mutators {
   font-style: italic;
 }
 
-/* line 94, ../sass/app.scss */
+/* line 117, ../sass/app.scss */
 .sidebar {
-  background: #f9f9f9;
   border-bottom-right-radius: 10px;
 }
 
-/* line 99, ../sass/app.scss */
+/* line 122, ../sass/app.scss */
 section.summary .public a, section.summary .protected a, section.summary .private a {
   display: block;
 }
 
-/* line 103, ../sass/app.scss */
+/* line 126, ../sass/app.scss */
 section.divider {
-  margin-top: 20px;
-  border-top: 1px solid #e0e0e0;
-  padding-top: 20px;
+  margin-top: 30px;
+  padding: 2rem;
+  background: #F1F8E9;
 }
 
-/* line 108, ../sass/app.scss */
+/* line 131, ../sass/app.scss */
 section.divider:after {
   content: " ";
   display: table;
   clear: both;
 }
 
-/* line 113, ../sass/app.scss */
+/* line 136, ../sass/app.scss */
 h3.signature {
   background: #f9f9f9;
   padding: 10px 10px;
@@ -11972,12 +12002,12 @@ h3.signature {
   border-top: 1px solid #ddd;
 }
 
-/* line 122, ../sass/app.scss */
+/* line 145, ../sass/app.scss */
 .signature .argument:not(:last-child):after {
   content: ', ';
 }
 
-/* line 124, ../sass/app.scss */
+/* line 147, ../sass/app.scss */
 .watermark {
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
@@ -11991,7 +12021,7 @@ h3.signature {
   transition: all 200ms;
 }
 
-/* line 134, ../sass/app.scss */
+/* line 157, ../sass/app.scss */
 .watermark:hover {
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);
@@ -11999,7 +12029,7 @@ h3.signature {
   opacity: 1;
 }
 
-/* line 138, ../sass/app.scss */
+/* line 161, ../sass/app.scss */
 .api-form {
   margin: 1rem 1rem 0;
 }

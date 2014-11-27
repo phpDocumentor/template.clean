@@ -11,6 +11,11 @@
             .when('/graphs/class', {
                 templateUrl: 'templates/class-diagram.html'
             })
+            .when('/namespaces/:namespace*', {
+                templateUrl: 'templates/namespace-detail.html',
+                controller: 'NamespaceDetail',
+                controllerAs: 'namespace_detail'
+            })
             .when('/classes', {
                 templateUrl: 'templates/class-list.html',
                 controller: 'ClassDetail',
