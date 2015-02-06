@@ -1,33 +1,48 @@
 {% block sidebarNamespaces %}
     {% set code = random() %}
+    {% if node.namespace != null %}
+        {% set isParentOrSelf = node.namespace.fullyQualifiedStructuralElementName starts with namespace.fullyQualifiedStructuralElementName %}
+    {% else %}
+        {% set isParentOrSelf = node.fullyQualifiedStructuralElementName starts with namespace.fullyQualifiedStructuralElementName %}
+    {% endif %}
     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
                 {% if namespace.children|length > 0 or namespace.classes|length > 0 or namespace.interfaces|length > 0 or namespace.traits|length > 0 %}
-                    <a class="accordion-toggle {{ namespace.name != '\\' ? 'collapsed' }}" data-toggle="collapse" data-target="#namespace-{{ code }}"></a>
+                    <a class="accordion-toggle {{ not isParentOrSelf ? 'collapsed' }}" data-toggle="collapse" data-target="#namespace-{{ code }}"></a>
                 {% endif %}
-                <a href="{{ namespace|route("url")|raw }}" style="margin-left: 30px; padding-left: 0">{{ namespace.name }}</a>
+                
+                {% set isSelected = node == namespace %}
+                <a href="{{ namespace|route("url")|raw }}" style="margin-left: 30px; padding-left: 0">{{ isSelected ? '<b>' }}{{ namespace.name }}{{ isSelected ? '</b>' }}</a>
             </div>
-            <div id="namespace-{{ code }}" class="accordion-body collapse {{ namespace.name == '\\' ? 'in' }}">
+            <div id="namespace-{{ code }}" class="accordion-body collapse {{ isParentOrSelf ? 'in' }}">
                 <div class="accordion-inner">
-
+                    
                     {% for namespace in namespace.children|sort_asc %}
                         {{ block('sidebarNamespaces') }}
                     {% endfor %}
-
+                    
                     <ul>
                         {% for class in namespace.interfaces|sort_asc %}
-                            <li class="interface">{{ class|route('class:short')|raw }}</li>
+                            {% set type = "interface" %}
+                            {{ block('sidebarItem') }}
                         {% endfor %}
                         {% for class in namespace.traits|sort_asc %}
-                            <li class="trait">{{ class|route('class:short')|raw }}</li>
+                            {% set type = "trait" %}
+                            {{ block('sidebarItem') }}
                         {% endfor %}
                         {% for class in namespace.classes|sort_asc %}
-                            <li class="class">{{ class|route('class:short')|raw }}</li>
+                            {% set type = "class" %}
+                            {{ block('sidebarItem') }}
                         {% endfor %}
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block sidebarItem %}
+    {% set isSelected = node == class %}
+    <li class="{{ type }}">{{ isSelected ? '<b>' }}{{ class|route('class:short')|raw }}{{ isSelected ? '</b>' }}</li>
 {% endblock %}
